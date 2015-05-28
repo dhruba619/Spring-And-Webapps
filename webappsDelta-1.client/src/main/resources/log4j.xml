@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- Rolling Appenders -->
+
+	<appender class="org.apache.log4j.net.SyslogAppender" name="sysLog">
+		<param name="Threshold" value="DEBUG" />
+		<!-- Change the localhost value to the exact syslog host -->
+		<param name="SyslogHost" value="localhost" />
+		<param name="Facility" value="local6" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="cms|SuretapJV|%5p %c{1}:%L %m%n" />
+		</layout>
+	</appender>
+	<!-- Rolling Appenders -->
+
+	<root>
+		<level value="DEBUG" />
+		<appender-ref ref="ROLLOUT" />
+		<priority value="INFO" />
+		<appender-ref ref="sysLog" />
+	</root>
+</log4j:configuration>
