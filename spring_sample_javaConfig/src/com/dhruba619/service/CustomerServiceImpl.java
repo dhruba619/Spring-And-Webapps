@@ -10,8 +10,7 @@ import com.dhruba619.model.Customer;
 
 public class CustomerServiceImpl implements ICustomerService {
 	
-	
-	@Autowired
+
 	private ICustomerDao customerDao;
 	
 	public CustomerServiceImpl(){}
