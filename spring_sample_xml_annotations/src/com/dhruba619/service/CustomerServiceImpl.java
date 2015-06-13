@@ -3,6 +3,7 @@ package com.dhruba619.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.dhruba619.dao.IBillingDao;
@@ -13,6 +14,9 @@ import com.dhruba619.model.Customer;
 public class CustomerServiceImpl implements ICustomerService {
 
 	private ICustomerDao customerDao;
+	
+	@Value("${velocity}")
+	private String  velocity;
 	
 	/*
 	 * Default no-arg constructor
@@ -46,6 +50,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
 	@Override
 	public List<Customer> giveAllCustomer() {
+		System.out.println("Printing velocity: "+velocity);
 		return customerDao.findAll();
 	}
 

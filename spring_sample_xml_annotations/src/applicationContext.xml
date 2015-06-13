@@ -22,7 +22,7 @@
 		within your classpath, provided they fall under the META-INF directory. The 
 		located property files are parsed and their values can then be used within 
 		application context files in the form of ${propertyKey}. -->
-	<!-- <context:property-placeholder location="classpath*:*.properties" /> -->
+	<context:property-placeholder location="*.properties" />
 
 <!-- 
 	<bean id="customerDao" class="com.dhruba619.dao.CustomerDaoImpl" />
@@ -32,7 +32,9 @@
 	<!-- Setter and Costructor Injection -->
 	<!-- <bean id="customerService" class="com.dhruba619.service.CustomerServiceImpl"> 
 		<property name="customerDao" ref="customerDao" /> <constructor-arg index="0" 
-		ref="billingDao" /> </bean> -->
+		ref="billingDao" />
+		<property name="velocity" value="${velocity}">
+		 </bean> -->
 
 
 	<!-- Setter and Constructor AutoWired -->
