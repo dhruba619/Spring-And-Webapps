@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+	
+	
+	<context:annotation-config />
+	<context:component-scan base-package="com.dhruba619" />
+	
+	<!--Three basic stereoType annotations:
+	@Component-any basic POJO
+	@Service-Same as component and extends component, but used for business logic layer.
+	@Repository-for any data object layer
+	All three are functionaly same
+	  -->
+
+	<!-- This will automatically locate any and all property files you have 
+		within your classpath, provided they fall under the META-INF directory. The 
+		located property files are parsed and their values can then be used within 
+		application context files in the form of ${propertyKey}. -->
+	<!-- <context:property-placeholder location="classpath*:*.properties" /> -->
+
+<!-- 
+	<bean id="customerDao" class="com.dhruba619.dao.CustomerDaoImpl" />
+	<bean id="billingDao" class="com.dhruba619.dao.BillingDaoImpl" />
+ -->
+
+	<!-- Setter and Costructor Injection -->
+	<!-- <bean id="customerService" class="com.dhruba619.service.CustomerServiceImpl"> 
+		<property name="customerDao" ref="customerDao" /> <constructor-arg index="0" 
+		ref="billingDao" /> </bean> -->
+
+
+	<!-- Setter and Constructor AutoWired -->
+	<!-- <bean id="customerService" class="com.dhruba619.service.CustomerServiceImpl" 
+		autowire="constructor"> <property name="customerDao" ref="customerDao" /> 
+		</bean> -->
+	
+	
+	<!-- AutoWired byType suitable only when there is a single instance of that type, for a setter autowire u must have a no arg constructor-->
+	<!-- <bean id="customerService" class="com.dhruba619.service.CustomerServiceImpl"
+		autowire="byType">
+		<property name="customerDao" ref="customerDao" />
+		<constructor-arg index="0" ref="billingDao" /> 
+	</bean> -->
+
+
+</beans>
